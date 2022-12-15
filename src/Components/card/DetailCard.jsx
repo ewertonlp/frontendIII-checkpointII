@@ -2,11 +2,10 @@ import { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import api from "../../services/api";
-import { AuthContext } from "../../providers/AuthContext";
 import { ThemeContext } from "../../providers/ThemeProvider";
 import ScheduleFormModal from "../schedule/ScheduleFormModal";
 import { ToastContainer, toast } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./DetailCard.module.css";
 
@@ -28,7 +27,11 @@ const DetailCard = () => {
       setDentista(response.data);
       user.push(dentista.user);
     } catch (error) {
-      toast.error('Erro ao buscar dentista');
+      toast.error('Erro ao buscar dentista', {
+        autoClose: 2500,
+        position: "top-center",
+        theme: "colored",
+      });
     }
   }
 
@@ -42,8 +45,6 @@ const DetailCard = () => {
     <>
       <h1>Informações do Dentista {dentista.nome} </h1>
       <section className="card col-sm-12 col-lg-6 mb-5 container">
-        {/* //Na linha seguinte deverá ser feito um teste se a aplicação
-        // está em dark mode e deverá utilizar o css correto */}
         <div
           className={theme === 'light' ? `card-body ${styles.cardDark}  row` : 'card-body row'}
         >
@@ -65,8 +66,6 @@ const DetailCard = () => {
               </li>
             </ul>
             <div className="text-center">
-              {/* //Na linha seguinte deverá ser feito um teste se a aplicação
-              // está em dark mode e deverá utilizado o css correto */}
               <button
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"

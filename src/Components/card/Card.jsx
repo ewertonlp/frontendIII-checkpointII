@@ -12,7 +12,6 @@ const Card = (props) => {
 
   return (
     <>
-      
       <div className={theme === "light" ? `card dark` : `card`}>
         <img
           className="card-img-top"

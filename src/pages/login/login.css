@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(238, 238, 238);
-    height: 80vh;
+    height: 70vh;
+    padding-bottom: 5rem;   
 }
 
 .login-dark {
@@ -14,6 +15,6 @@
     justify-content: center;
     background-color: #2e3135;
     color: rgb(245, 245, 245);
-    height: 80vh;
-    
+    height: 70vh;
+    padding-bottom: 5rem;   
 }

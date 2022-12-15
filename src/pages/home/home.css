@@ -1,10 +1,19 @@
 .home-light {
     background-color: rgb(238, 238, 238);
-    
+    padding-bottom: 4rem;
+}
+
+.home-light > h6 {
+    margin-bottom: 1rem;
 }
 
 .home-dark {
     background-color: #2e3135;
     color: rgb(245, 245, 245);
+    height: 100%;
+    padding-bottom: 4rem;
+}
+
+.home-dark > h6 {
     margin-bottom: 2rem;
 }

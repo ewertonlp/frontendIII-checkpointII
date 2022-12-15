@@ -7,57 +7,73 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/AuthContext";
 import { ThemeContext } from "../../providers/ThemeProvider";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./Form.module.css";
 
 const LoginForm = () => {
-  const { theme, handleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { userData, fillUserDataState } = useContext(AuthContext);
-
-  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [viewPassword, setViewPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     auth();
   };
 
+  const cleanForm = (e) => {
+    setError("");
+  };
+
   async function auth() {
     try {
-      const response = await api.post("/auth", {
-        username,
-        password,
-      });
-      toast.success('Login efetuado com sucesso.', {
-        type: 'success',
-        autoClose: 2000,
-        position: 'top-center',
-        theme: 'colored',
-      });
-      localStorage.setItem("token", response.data.token);
-      navigate("/home");
-      fillUserDataState({
-        token: response.data.token,
-      });
+      if (username.length <= 3 || password.length <= 6) {
 
-      setTimeout(() => {
-        navigate("/home");
-      }, 2000);
+        toast.error("Login deve conter mais de 3 caracteres e senha mais de 6 caracteres. Tente novamente.", {
+          autoClose: 4000,
+          position: "top-center",
+          theme: "colored",
+        });
+      } else {
+        cleanForm();
+        const response = await api.post("/auth", {
+          username,
+          password,
+        });
+        // navigate("/home");
+        fillUserDataState({
+          token: response.data.token,
+          tipo: response.data.tipo
+        });
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+        toast("Login efetuado com sucesso.", {
+          type: "success",
+          autoClose: 2000,
+          position: "top-center",
+          theme: "colored",
+        });
+
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
+      }
     } catch (error) {
       toast.error("Erro ao fazer login, tente navamente", {
         autoClose: 2500,
-        position: 'top-center',
-        theme: 'colored',
+        position: "top-center",
+        theme: "colored",
       });
     }
   }
 
   return (
     <>
-      
       <div
         className={
           theme === "light"
@@ -65,7 +81,7 @@ const LoginForm = () => {
             : `text-center card ${styles.card} bg-light`
         }
       >
-        <h3>{userData.token}</h3>
+        {/* <h3>{userData.token}</h3> */}
         <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>
             <input
@@ -81,13 +97,20 @@ const LoginForm = () => {
                 className={styles.form_input_password}
                 placeholder="Password"
                 name="password"
-                type="password"
+                type={viewPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <div className={styles.icon}>
-                <FiEye />
+              <div
+              className={styles.icon}
+              onClick={() => setViewPassword(!viewPassword)}
+              >
+                {
+                  viewPassword ?
+                  <FiEye /> :
+                  <FiEyeOff />
+                }
               </div>
             </div>
             <button className="btn btn-primary" type="submit">

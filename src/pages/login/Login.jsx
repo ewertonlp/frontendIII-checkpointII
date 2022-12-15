@@ -1,6 +1,5 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 
-import { AuthContext } from '../../providers/AuthContext';
 import { ThemeContext } from "../../providers/ThemeProvider";
 
 import LoginForm from "../../Components/form/LoginForm";
@@ -11,12 +10,7 @@ import './login.css';
 
 
 const Contact = () => {
-  const { theme, handleTheme } = useContext(ThemeContext);
-  // const { userData } = useContext(AuthContext);
-
-  // useEffect(() => {
-  //   userData(false);
-  // }, []);
+  const { theme } = useContext(ThemeContext);
   
   return (
     <>
