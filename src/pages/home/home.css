@@ -1,0 +1,10 @@
+.home-light {
+    background-color: rgb(238, 238, 238);
+    
+}
+
+.home-dark {
+    background-color: #2e3135;
+    color: rgb(245, 245, 245);
+    margin-bottom: 2rem;
+}

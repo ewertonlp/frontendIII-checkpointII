@@ -1,0 +1,19 @@
+.login-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(238, 238, 238);
+    height: 80vh;
+}
+
+.login-dark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2e3135;
+    color: rgb(245, 245, 245);
+    height: 80vh;
+    
+}

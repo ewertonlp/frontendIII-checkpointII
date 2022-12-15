@@ -1,0 +1,11 @@
+.cardDark{
+  display: flex;
+  background: #05040496 !important;
+}
+
+.button{
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+}

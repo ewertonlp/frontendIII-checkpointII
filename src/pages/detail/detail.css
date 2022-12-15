@@ -1,0 +1,13 @@
+.detail-light {
+    background-color: rgb(238, 238, 238);
+    height: 90vh;
+    margin-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.detail-dark {
+    background-color: #2e3135;
+    color: rgb(245, 245, 245);
+    height: 90vh;
+    padding-bottom: 2rem;
+}

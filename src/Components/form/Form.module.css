@@ -1,0 +1,60 @@
+.card{
+  width: 23rem;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  height: calc(100vh (-50px));
+}
+
+
+
+.container_password{
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  height: 2rem;
+}
+
+.container_password input {
+  flex: 1;
+  padding-left: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  height: 100%;
+}
+
+.form_input_user {
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 4px;
+  height: 2rem;
+  padding-left: 0.5rem;
+  outline: none;
+  
+}
+
+
+.form_dark {
+  color: #fff;
+  background-color: #2E3135;
+}
+
+
+.inputSpacing+.inputSpacing{
+  margin: 1rem 0;
+}
+
+.icon {
+  padding: 0 10px;
+  cursor: pointer;
+  color: #2E3135;
+  background-color: #fff;
+  height: 100%;
+}
+
+.cardDark{
+  background-color: #31313196;
+  color: #fff;
+}

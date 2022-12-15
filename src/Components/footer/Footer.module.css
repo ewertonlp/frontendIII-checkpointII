@@ -1,3 +1,4 @@
+
 .footerWrapper {
   margin-top: auto;
 }
@@ -5,11 +6,15 @@
 .top {
   text-transform: uppercase;
   padding: 1rem;
-  background: #f21d1d;
+  background: #1d8bf2;
   border: none;
   color: white;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   width: 100%;
+}
+
+.top:hover {
+  background-color: #0b76da;
 }
 
 .footer {
@@ -20,19 +25,28 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  font-size: 1.5rem;
   gap: 1rem;
-  filter: brightness(0);
+  cursor: pointer;
+}
+
+.iconsLight {
+  color: #2E3135;
 }
 
 .iconsDark{
-  filter: brightness(0) invert(1);
+  color: rgb(230, 230, 230);
 }
 
 .dhLogo{
   max-width: 50%;
 }
 
-.icon {
-  max-width: 2rem;
-  height: auto;
+.dhLogoDark {
+  filter: brightness(0) invert(1);
 }
+
+.dhLogoLight {
+  color: #2E3135;
+}
+
