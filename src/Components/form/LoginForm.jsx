@@ -17,7 +17,6 @@ const LoginForm = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [viewPassword, setViewPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -25,10 +24,6 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     auth();
-  };
-
-  const cleanForm = (e) => {
-    setError("");
   };
 
   async function auth() {
@@ -41,12 +36,12 @@ const LoginForm = () => {
           theme: "colored",
         });
       } else {
-        cleanForm();
+        
         const response = await api.post("/auth", {
           username,
           password,
         });
-        // navigate("/home");
+        
         fillUserDataState({
           token: response.data.token,
           tipo: response.data.tipo
@@ -81,7 +76,6 @@ const LoginForm = () => {
             : `text-center card ${styles.card} bg-light`
         }
       >
-        {/* <h3>{userData.token}</h3> */}
         <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>
             <input
@@ -114,7 +108,7 @@ const LoginForm = () => {
               </div>
             </div>
             <button className="btn btn-primary" type="submit">
-              Send
+              Login
             </button>
           </form>
         </div>

@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./Routes/Routes";
 

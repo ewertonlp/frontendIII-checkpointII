@@ -25,12 +25,10 @@ const AuthProvider = ({ children }) => {
    
    if(response) {
     user = JSON.parse(response);
-
     fillUserDataState({
       username: user.username,
       token: user.token, 
     });
-
     navigate("/home");
    }
   }, []);

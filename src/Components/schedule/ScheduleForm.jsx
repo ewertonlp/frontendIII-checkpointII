@@ -52,7 +52,6 @@ const ScheduleForm = () => {
       const response = await api.post("/consulta", body, headers);
       alert("Sua consulta foi agendada.");
     } catch (error) {
-      // alert("Erro " + error.response?.data || error);
       toast.error("Agendamento de consultas temporariamente indisponível.", {
         autoClose: 2500,
         position: 'top-center',
@@ -63,8 +62,6 @@ const ScheduleForm = () => {
 
   return (
     <>
-      {/* //Na linha seguinte deverá ser feito um teste se a aplicação
-        // está em dark mode e deverá utilizar o css correto */}
       <div className={theme === 'light' ? `text-center container ${styles.cardDark}` : `text-center container`}>
         <form onSubmit={handleSubmit}>
           <div className={`row ${styles.rowSpacing}`}>
@@ -81,7 +78,7 @@ const ScheduleForm = () => {
               name="dentist"
               id="dentist"
               >
-                {/*Aqui deve ser feito um map para listar todos os dentistas*/}
+                
                 {dentista.map((dentista) => (
                 <option
                   key={dentista.matricula}
@@ -102,7 +99,6 @@ const ScheduleForm = () => {
               className="form-select"
               name="patient" 
               id="patient">
-                {/*Aqui deve ser feito um map para listar todos os pacientes*/}
                 {paciente?.map((paciente) => (
                 <option
                   key={paciente.matricula}
@@ -130,8 +126,6 @@ const ScheduleForm = () => {
             </div>
           </div>
           <div className={`row ${styles.rowSpacing}`}>
-            {/* //Na linha seguinte deverá ser feito um teste se a aplicação
-        // está em dark mode e deverá utilizar o css correto */}
             <button className={theme === 'light' ? `btn btn-dark ${styles.button}` : `btn btn-light${styles.button}`} type="submit">
               Agendar
             </button>
